@@ -3,6 +3,7 @@ package cc.u2me.study;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 
 public class App {
 
@@ -15,7 +16,15 @@ public class App {
 	public static void main(String[] args) {
 		String path = "/Users/lijiaming/Documents";
 		String what = "lijiaming";
-		
+		Scanner sc = new Scanner(System.in);
+		what = sc.nextLine();
+		while(!what.equals("exit()")) {
+			search(path, what);
+			what = sc.nextLine();
+		}
+		sc.close();
+	}
+	public static void search(String path, String what) {
 		//1.list all files
 		File parent = new File(path);
 		File[] files = parent.listFiles();
